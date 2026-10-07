@@ -1,0 +1,13 @@
+  {
+    "name": "plant",
+    "packageManager": "npm@11.12.1",
+    "version": "1.0.0",
+    "private": true,
+    "workspaces": [
+      "plant-api",
+      "packages/*"
+    ],
+    "devDependencies": {
+      "turbo": "^2.11.7"
+    }
+  }
