@@ -20,7 +20,7 @@ Follow this file for every change to the app or the API. If a task would break o
 | API | Express, TypeScript, zod, helmet, pino |
 | Plant ID | Plant.id (primary), Pl@ntNet (fallback, Phase 1), own FastAPI model (Phase 2) |
 | Database | MongoDB Atlas (from Phase 1) |
-| Hosting | Docker on Coolify VPS |
+| Hosting | Azure, IaC via Bicep |
 | App builds | EAS Build, EAS Submit, EAS Update |
 
 Do not introduce Next.js, PHP, OpenAI or a Python backend unless asked. Python is only for a future self-hosted ID model service.
@@ -158,7 +158,7 @@ Write Phase 0 code so Phase 1 needs no rewrite: no in-memory state the API depen
 - Sentry in app and API; pino JSON logs with a request ID; uptime monitor on `/v1/health`.
 - Track identify calls per day, ID success rate, p95 latency and provider spend.
 - Environments: `staging` and `production`, each with its own API URL, keys and database. The Expo build profile picks the API URL; test builds never hit production.
-- API deploys from `main` via Coolify; JS-only app fixes ship via EAS Update; native changes need a new store build.
+- API deploys from `main` to Azure (target compute service and CI pipeline TBD); JS-only app fixes ship via EAS Update; native changes need a new store build.
 - CI on pull requests: typecheck, lint, API tests.
 
 ## Open questions
